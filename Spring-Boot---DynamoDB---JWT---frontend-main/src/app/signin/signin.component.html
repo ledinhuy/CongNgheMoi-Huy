@@ -1,0 +1,37 @@
+<section fxLayout="column wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex.xs="100%">
+    <mat-card-title>Đăng nhập</mat-card-title>
+
+    <form [formGroup]="requestLoginForm" autocomplete="off" novalidate (ngSubmit)="createUser(requestLoginForm.value)"
+      fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="">
+      <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="" class="profile-img-card">
+      <!-- Content -->
+      <mat-card-content>
+        <!-- PhoneEmail -->
+        <mat-form-field>
+          <input matInput type="text" placeholder="Phone / Email" formControlName="phoneEmail" id="phoneEmail"
+            #phoneEmail>
+          <mat-error *ngIf="hasError('phoneEmail', 'required')">Phone / Email is required!</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+
+      <!-- Password -->
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password" name="password"
+            id="password">
+          <mat-error *ngIf="hasError('password', 'required')">Password is required!</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+      <!-- Action -->
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="!requestLoginForm.valid">Đăng Nhập</button>
+        <button mat-raised-button color="warn">Thoát</button>
+      </mat-card-actions>
+    </form>
+    <div *ngIf="!!isLoginFailed" class="alert alert-danger" >
+      <p [(ngModel)]="errorMessage"></p>
+    </div>
+  </mat-card>
+</section>

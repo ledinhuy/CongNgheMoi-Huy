@@ -1,0 +1,28 @@
+jw-modal {
+  display: none;
+}
+jw-modal .jw-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: hidden;
+}
+/* jw-modal .jw-modal .jw-modal-body {
+  background: #fff;
+  margin: 200px 500px;
+} */
+jw-modal .jw-modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* background-color: rgba(0, 0, 0, 1); */
+  z-index: 900;
+}
+body.jw-modal-open {
+  overflow: hidden;
+}
